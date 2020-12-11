@@ -316,6 +316,7 @@ func getStatefulset(
 						imageID,
 						persistDirs,
 					),
+					HostIPC: true,
 					Containers: []v1.Container{
 						{
 							Name:            AppContainerName,

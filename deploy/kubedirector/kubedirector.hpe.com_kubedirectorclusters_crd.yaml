@@ -128,6 +128,9 @@ spec:
                           nvidia.com/gpu:
                             type: string
                             pattern: '^([0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$'
+                          nvidia.com/gpu-thread:
+                            type: string
+                            pattern: '^([0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$'  
                           amd.com/gpu:
                             type: string
                             pattern: '^([0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$'
