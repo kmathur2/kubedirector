@@ -63,6 +63,9 @@ const (
 	// nvidiaGpuResourceName is the name of a GPU resource, schedulable for a container -
 	// specifically, a GPU by the vendor, NVIDIA
 	nvidiaGpuResourceName = "nvidia.com/gpu"
+
+	//nvidiaGpuThreadResourceName
+	nvidiaGpuThreadResourceName = "nvidia.com/gpu-thread"
 	// nvidiaGpuVisWorkaroundEnvVarName is the name of an environment variable, which is to be
 	// injected in a scheduled container), as an NVIDIA-suggested work-around that
 	// avoids an NVIDIA GPU resource surfacing in a container for which it was not requested
