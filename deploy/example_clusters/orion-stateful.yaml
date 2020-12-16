@@ -1,0 +1,307 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  annotations:
+    kubedirector.hpe.com/kdapp-prettyName: Orion GPU
+  creationTimestamp: "2020-12-12T00:44:22Z"
+  generateName: kdss-
+  generation: 2
+  labels:
+    kubedirector.hpe.com/appCatalog: local
+    kubedirector.hpe.com/headless: orion-gpu-slice
+    kubedirector.hpe.com/kdapp: orion-gpu-slice
+    kubedirector.hpe.com/kdcluster: orion-gpu-slice
+    kubedirector.hpe.com/role: controller
+  managedFields:
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:collisionCount: {}
+        f:currentReplicas: {}
+        f:currentRevision: {}
+        f:observedGeneration: {}
+        f:replicas: {}
+        f:updateRevision: {}
+        f:updatedReplicas: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2020-12-12T00:44:22Z"
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:kubedirector.hpe.com/kdapp-prettyName: {}
+        f:generateName: {}
+        f:labels:
+          .: {}
+          f:kubedirector.hpe.com/appCatalog: {}
+          f:kubedirector.hpe.com/headless: {}
+          f:kubedirector.hpe.com/kdapp: {}
+          f:kubedirector.hpe.com/kdcluster: {}
+          f:kubedirector.hpe.com/role: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"e2905930-ade1-4e45-a7f0-0c36bbfad715"}:
+            .: {}
+            f:apiVersion: {}
+            f:blockOwnerDeletion: {}
+            f:controller: {}
+            f:kind: {}
+            f:name: {}
+            f:uid: {}
+      f:spec:
+        f:podManagementPolicy: {}
+        f:replicas: {}
+        f:revisionHistoryLimit: {}
+        f:selector:
+          f:matchLabels:
+            .: {}
+            f:kubedirector.hpe.com/appCatalog: {}
+            f:kubedirector.hpe.com/headless: {}
+            f:kubedirector.hpe.com/kdapp: {}
+            f:kubedirector.hpe.com/kdcluster: {}
+            f:kubedirector.hpe.com/role: {}
+        f:serviceName: {}
+        f:template:
+          f:metadata:
+            f:annotations:
+              .: {}
+              f:kubedirector.hpe.com/kdapp-prettyName: {}
+            f:labels:
+              .: {}
+              f:kubedirector.hpe.com/appCatalog: {}
+              f:kubedirector.hpe.com/headless: {}
+              f:kubedirector.hpe.com/kdapp: {}
+              f:kubedirector.hpe.com/kdcluster: {}
+              f:kubedirector.hpe.com/role: {}
+          f:spec:
+            f:automountServiceAccountToken: {}
+            f:containers:
+              k:{"name":"app"}:
+                .: {}
+                f:image: {}
+                f:imagePullPolicy: {}
+                f:lifecycle:
+                  .: {}
+                  f:postStart:
+                    .: {}
+                    f:exec:
+                      .: {}
+                      f:command: {}
+                f:name: {}
+                f:ports:
+                  .: {}
+                  k:{"containerPort":8000,"protocol":"TCP"}:
+                    .: {}
+                    f:containerPort: {}
+                    f:name: {}
+                    f:protocol: {}
+                  k:{"containerPort":8001,"protocol":"TCP"}:
+                    .: {}
+                    f:containerPort: {}
+                    f:name: {}
+                    f:protocol: {}
+                  k:{"containerPort":8002,"protocol":"TCP"}:
+                    .: {}
+                    f:containerPort: {}
+                    f:name: {}
+                    f:protocol: {}
+                f:resources:
+                  .: {}
+                  f:limits:
+                    .: {}
+                    f:cpu: {}
+                    f:memory: {}
+                    f:nvidia.com/gpu-thread: {}
+                  f:requests:
+                    .: {}
+                    f:cpu: {}
+                    f:memory: {}
+                    f:nvidia.com/gpu-thread: {}
+                f:terminationMessagePath: {}
+                f:terminationMessagePolicy: {}
+                f:volumeMounts:
+                  .: {}
+                  k:{"mountPath":"/run"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+                  k:{"mountPath":"/sys/fs/cgroup"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+                    f:readOnly: {}
+                  k:{"mountPath":"/sys/fs/cgroup/systemd"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+                  k:{"mountPath":"/tmp"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+            f:dnsPolicy: {}
+            f:hostIPC: {}
+            f:restartPolicy: {}
+            f:schedulerName: {}
+            f:securityContext: {}
+            f:terminationGracePeriodSeconds: {}
+            f:volumes:
+              .: {}
+              k:{"name":"cgroupfs"}:
+                .: {}
+                f:hostPath:
+                  .: {}
+                  f:path: {}
+                  f:type: {}
+                f:name: {}
+              k:{"name":"systemd"}:
+                .: {}
+                f:hostPath:
+                  .: {}
+                  f:path: {}
+                  f:type: {}
+                f:name: {}
+              k:{"name":"tmpfs-run"}:
+                .: {}
+                f:emptyDir:
+                  .: {}
+                  f:medium: {}
+                  f:sizeLimit: {}
+                f:name: {}
+              k:{"name":"tmpfs-tmp"}:
+                .: {}
+                f:emptyDir:
+                  .: {}
+                  f:medium: {}
+                  f:sizeLimit: {}
+                f:name: {}
+        f:updateStrategy:
+          f:rollingUpdate:
+            .: {}
+            f:partition: {}
+          f:type: {}
+    manager: kubedirector
+    operation: Update
+    time: "2020-12-12T00:44:22Z"
+  name: kdss-vg24g
+  namespace: kd-apps
+  ownerReferences:
+  - apiVersion: kubedirector.hpe.com/v1beta1
+    blockOwnerDeletion: true
+    controller: true
+    kind: KubeDirectorCluster
+    name: orion-gpu-slice
+    uid: e2905930-ade1-4e45-a7f0-0c36bbfad715
+  resourceVersion: "23388031"
+  selfLink: /apis/apps/v1/namespaces/kd-apps/statefulsets/kdss-vg24g
+  uid: f062d061-9354-4b86-9603-673f96ce90ee
+spec:
+  podManagementPolicy: Parallel
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      kubedirector.hpe.com/appCatalog: local
+      kubedirector.hpe.com/headless: orion-gpu-slice
+      kubedirector.hpe.com/kdapp: orion-gpu-slice
+      kubedirector.hpe.com/kdcluster: orion-gpu-slice
+      kubedirector.hpe.com/role: controller
+  serviceName: kdhs-hkrwk
+  template:
+    metadata:
+      annotations:
+        kubedirector.hpe.com/kdapp-prettyName: Orion GPU
+      creationTimestamp: null
+      labels:
+        hpecp.hpe.com/fsmount: kd-apps
+        kubedirector.hpe.com/appCatalog: local
+        kubedirector.hpe.com/headless: orion-gpu-slice
+        kubedirector.hpe.com/kdapp: orion-gpu-slice
+        kubedirector.hpe.com/kdcluster: orion-gpu-slice
+        kubedirector.hpe.com/role: controller
+    spec:
+      automountServiceAccountToken: false
+      containers:
+      - image: jungukcho/trtis-19-03-py-with-resnet-152-on-t4
+        imagePullPolicy: Always
+        lifecycle:
+          postStart:
+            exec:
+              command:
+              - /bin/bash
+              - -c
+              - exec 2>>/tmp/kd-postcluster.log; set -x;Retries=60; while [[ $Retries
+                && ! -s /etc/resolv.conf ]]; do sleep 1; Retries=$(expr $Retries -
+                1); done; sed "s/^search \([^ ]\+\)/search kdhs-hkrwk.\1 \1/" /etc/resolv.conf
+                > /tmp/resolv.conf.new && cat /tmp/resolv.conf.new > /etc/resolv.conf;rm
+                /tmp/resolv.conf.new;chmod 755 /run;exit 0
+        name: app
+        ports:
+        - containerPort: 8000
+          name: orion-http
+          protocol: TCP
+        - containerPort: 8001
+          name: orion-grpc
+          protocol: TCP
+        - containerPort: 8002
+          name: orion-metrics
+          protocol: TCP
+        resources:
+          limits:
+            cpu: "2"
+            memory: 4Gi
+            nvidia.com/gpu-thread: "1"
+          requests:
+            cpu: "2"
+            memory: 4Gi
+            nvidia.com/gpu-thread: "1"
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /tmp
+          name: tmpfs-tmp
+        - mountPath: /run
+          name: tmpfs-run
+        - mountPath: /sys/fs/cgroup
+          name: cgroupfs
+          readOnly: true
+        - mountPath: /sys/fs/cgroup/systemd
+          name: systemd
+      dnsPolicy: ClusterFirst
+      hostIPC: true
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - emptyDir:
+          medium: Memory
+          sizeLimit: 20Gi
+        name: tmpfs-tmp
+      - emptyDir:
+          medium: Memory
+          sizeLimit: 20Gi
+        name: tmpfs-run
+      - hostPath:
+          path: /sys/fs/cgroup
+          type: ""
+        name: cgroupfs
+      - hostPath:
+          path: /sys/fs/cgroup/systemd
+          type: ""
+        name: systemd
+  updateStrategy:
+    rollingUpdate:
+      partition: 0
+    type: RollingUpdate
+status:
+  collisionCount: 0
+  currentReplicas: 1
+  currentRevision: kdss-vg24g-84f9d6b878
+  observedGeneration: 2
+  replicas: 1
+  updateRevision: kdss-vg24g-84f9d6b878
+  updatedReplicas: 1
