@@ -351,7 +351,7 @@ func chkModifyEnvVars(
 	// if quantity, found := rsrcmap[nvidiaGpuResourceName]; found == true && quantity.IsZero() != true {
 	// 	return envVar
 	// }
-	if quantity, found := rsrcmap[nvidiaGpuThreadResourceName]; found == true && quantity.IsZero() != true {
+	if quantity, found := rsrcmap[nvidiaGpuResourceName]; found == true && quantity.IsZero() != true {
 		return envVar
 	}
 
