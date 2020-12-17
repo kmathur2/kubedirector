@@ -68,7 +68,7 @@
                 }
             }
         ],
-        "defaultConfigPackage": null,
+        "defaultConfigPackage": "/opt/configscripts/appconfig.tgz",
         "roles": [
             {
                 "cardinality": "1",
