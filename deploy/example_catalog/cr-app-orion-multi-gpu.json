@@ -1,0 +1,82 @@
+{
+    "apiVersion": "kubedirector.hpe.com/v1beta1",
+    "kind": "KubeDirectorApp",
+    "metadata": {
+        "name": "orion-gpu-slice"
+    },
+    "spec": {
+        "logoURL": "https://raw.githubusercontent.com/bluedatainc/solutions/master/MLOps/logos/tensorlfow-gpu-jupyter.png",
+        "systemdRequired": true,
+        "config": {
+            "roleServices": [
+                {
+                    "serviceIDs": [
+                        "orion-http",
+                        "orion-grpc",
+                        "orion-metrics"
+                    ],
+                    "roleID": "controller"
+                }
+            ],
+            "selectedRoles": [
+                "controller"
+            ]
+        },
+        "label": {
+            "name": "Orion GPU",
+            "description": "Orion GPU Slice"
+        },
+        "defaultImageRepoTag": "jungukcho/trtis-19-03-py-with-resnet-152-on-t4",
+        "distroID": "ecp/orion",
+        "version": "1.0",
+        "configSchemaVersion": 7,
+        "services": [
+            {
+                "endpoint": {
+                    "urlScheme": "http",
+                    "path": "/",
+                    "isDashboard": true,
+                    "port": 8000
+                },
+                "id": "orion-http",
+                "label": {
+                    "name": "Orion http"
+                }
+            },
+            {
+                "endpoint": {
+                    "urlScheme": "grpc",
+                    "path": "/",
+                    "isDashboard": false,
+                    "port": 8001
+                },
+                "id": "orion-grpc",
+                "label": {
+                    "name": "Orion grpc"
+                }
+            },
+            {
+                "endpoint": {
+                    "urlScheme": "metrics",
+                    "path": "/",
+                    "isDashboard": false,
+                    "port": 8002
+                },
+                "id": "orion-metrics",
+                "label": {
+                    "name": "Orion metrics"
+                }
+            }
+        ],
+        "defaultConfigPackage": "/opt/configscripts/appconfig.tgz",
+        "roles": [
+            {
+                "cardinality": "1",
+                "id": "controller",
+                "minResources":{
+                    "nvidia.com/gpu-thread": "1"
+                }
+            }
+        ]
+    }
+}
